@@ -1,0 +1,30 @@
+<h1>Eat Da Burger!</h1>
+
+<div class = "submit-form">
+    <form>
+        <h2>Add Your Burger!</h2>
+        <input type="text" name="burger">
+    </form>
+    {{!-- Add functionality to bring button into Undevoured list --}}
+    <button type="submit">Add Burger!</button>
+</div>
+
+<div>
+    <h2>Undevoured Burgs</h2>
+    <ul>
+        {{#each burger}}
+            {{#unless devoured}}
+            {{!-- Add button to move burger to Devoured list --}}
+                {{>burger devoured = false}}
+            {{/unless}}
+        {{/each}}
+    </ul>
+    <h2>Devoured Burgs</h2>
+    <ul>
+        {{#each burger}}
+            {{#if devoured}}
+                {{>burger devoured = true}}
+            {{/if}}
+        {{/each}}
+    </ul>
+</div>
